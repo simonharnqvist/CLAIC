@@ -1,18 +1,19 @@
 import numpy as np
-from matrices import jacobian, hessian
+from clikic.matrices import jacobian, hessian
 
 
-def claic(f, likelihood, estimates):
+def claic(f, estimates):
     """Calculate composite likelihood AIC.
 
     Args:
         f (function): Composite likelihood function.
-        likelihood (float): Likelihood estimate.
         estimates (tuple): Parameter estimates.
 
     Returns:
         float: Composite likelihood AIC.
     """
+
+    likelihood = f(estimates)
 
     jacobian_mat = jacobian(f, estimates)
     hessian_mat = hessian(f, estimates)
@@ -23,18 +24,19 @@ def claic(f, likelihood, estimates):
     return cl_akaike
 
 
-def clbic(f, likelihood, estimates, n_samples):
+def clbic(f, estimates, n_samples):
     """Calculate composite likelihood BIC.
 
     Args:
         f (function): Composite likelihood function.
-        likelihood (float): Likelihood estimate.
         estimates (tuple): Parameter estimates.
         n_samples (int): Sample size.
 
     Returns:
         float: Composite likelihood BIC.
     """
+
+    likelihood = f(estimates)
 
     jacobian_mat = jacobian(f, estimates)
     hessian_mat = hessian(f, estimates)
