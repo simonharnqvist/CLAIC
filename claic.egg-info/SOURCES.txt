@@ -1,8 +1,0 @@
-README.md
-setup.py
-claic/matrices.py
-claic/model_performance.py
-claic.egg-info/PKG-INFO
-claic.egg-info/SOURCES.txt
-claic.egg-info/dependency_links.txt
-claic.egg-info/top_level.txt

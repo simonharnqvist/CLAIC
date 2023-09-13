@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name='claic',
+    name='clikic',
     version='0.01',
-    packages=['claic']
+    packages=['clikic']
 )
