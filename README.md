@@ -25,3 +25,31 @@ CLBIC, formulated by Gao and Song (2010), is similar to CLAIC, but adjusts for s
 $$ CLBIC = -2L_{CL}(\hat\theta_{CL}) + log(n) tr[\mathbf{J}(\hat\theta_{CL})\mathbf{H}^{-1}(\hat\theta_{CL})] $$
 
 **Reference:** *Gao, X., & Song, P. X.-K. (2010). Composite Likelihood Bayesian Information Criteria for Model Selection in High-Dimensional Data. Journal of the American Statistical Association, 105(492), 1531–1540. http://www.jstor.org/stable/27920184*
+
+## Installation
+Currently ``ClikIC`` is only available via this GitHub repo. Please use ``git clone`` and install with ``pip install -e``.  
+
+## Syntax
+``CLikIC`` is very easy to use, provided that you have a correctly formulated likelihood function. A simple example of how to use it is provided here. 
+
+Import ``claic``:
+```python
+from clikic.inform_crit import claic
+```
+
+First we need to define a composite likelihood function. The function ``f`` below is obviously not a composite likelihood, but it illustrates the syntax. 
+```python
+def f(params):
+    """I'm pretending to be a composite likelihood function"""
+    x, y, z = params
+    return x**2 + y**2 + z**2
+```
+
+Running ``CLikIC`` is then a one-liner:
+```python
+clikic.inform_crit.claic(f, (1,2,3))
+```
+Output:
+```python
+-26.000000000000004
+```
