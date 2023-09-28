@@ -1,5 +1,5 @@
 import numpy as np
-from clic.matrices import hessian, jacobian
+from iclik.matrices import hessian, jacobian
 
 # case 1
 def f1(params):
