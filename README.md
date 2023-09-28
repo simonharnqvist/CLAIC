@@ -1,5 +1,5 @@
-# CLikIC: Composite Likelihood Information Criteria
-``CLIKIC`` is a minimal package for evaluating composite likelihood models using Composite Likelihood AIC and BIC (CLAIC/CLBIC).
+# CLIC: Composite Likelihood Information Criteria
+``CLIC`` is a minimal package for evaluating composite likelihood models using Composite Likelihood AIC and BIC (CLAIC/CLBIC).
 
 For a review of these information criteria, please see: </br>
 *Ng, C. T., & Joe, H. (2014). Model comparison with composite likelihood information criteria. Bernoulli, 20(4), 1738–1764. http://www.jstor.org/stable/43590422*
@@ -27,10 +27,10 @@ $$ CLBIC = -2L_{CL}(\hat\theta_{CL}) + log(n) tr[\mathbf{J}(\hat\theta_{CL})\mat
 **Reference:** *Gao, X., & Song, P. X.-K. (2010). Composite Likelihood Bayesian Information Criteria for Model Selection in High-Dimensional Data. Journal of the American Statistical Association, 105(492), 1531–1540. http://www.jstor.org/stable/27920184*
 
 ## Installation
-Currently ``ClikIC`` is only available via this GitHub repo. Please use ``git clone`` and install with ``pip install -e``.  
+Currently ``CLIC`` is only available via this GitHub repo. Please use ``git clone`` and install with ``pip install -e``.  
 
 ## Syntax
-``CLikIC`` is very easy to use, provided that you have a correctly formulated likelihood function. A simple example of how to use it is provided here. 
+``CLIC`` is very easy to use, provided that you have a correctly formulated likelihood function. A simple example of how to use it is provided here. 
 
 Import ``claic``:
 ```python
@@ -45,9 +45,9 @@ def f(params):
     return x**2 + y**2 + z**2
 ```
 
-Running ``CLikIC`` is then a one-liner:
+Running ``CLIC`` is then a one-liner:
 ```python
-clikic.inform_crit.claic(f, (1,2,3))
+claic(f, (1,2,3))
 ```
 Output:
 ```python
