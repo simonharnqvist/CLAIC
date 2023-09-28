@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name='clic',
+    name='iclik',
     version='0.01-alpha',
-    packages=['clic']
+    packages=['iclik']
 )
