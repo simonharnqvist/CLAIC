@@ -1,3 +1,6 @@
+name: publish on PyPI
+on: push
+
 jobs:
   pypi-publish:
     name: Upload release to PyPI
