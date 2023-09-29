@@ -1,5 +1,5 @@
 LICENSE
-README.md
+README.rst
 setup.py
 iclik/inform_crit.py
 iclik/matrices.py
