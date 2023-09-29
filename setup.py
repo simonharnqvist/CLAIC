@@ -1,5 +1,4 @@
 from setuptools import setup
-import pypandoc
 
 setup(
     name='iclik',
