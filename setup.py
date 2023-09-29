@@ -2,6 +2,7 @@ from setuptools import setup
 
 setup(
     name='iclik',
-    version='0.01-alpha',
-    packages=['iclik']
+    version='0.06-alpha',
+    packages=['iclik'],
+    long_description="README.md"
 )
