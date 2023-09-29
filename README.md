@@ -38,10 +38,10 @@ Import ``claic``:
 from iclik.inform_crit import claic
 ```
 
-First we need to define a composite likelihood function. The function ``f`` below is obviously not a composite likelihood, but it illustrates the syntax. 
+First we need to define a composite likelihood function.
 ```python
 def f(params):
-    """I'm pretending to be a composite likelihood function"""
+    """I'm a composite likelihood function"""
     x, y, z = params
     return x**2 + y**2 + z**2
 ```
