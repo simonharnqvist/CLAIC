@@ -21,11 +21,11 @@ Composite Likelihood AIC (CLAIC)
 The composite likelihood version of the Akaike information criterion
 (AIC) was proposed by Varin et al (2011). It is calculated as:
 
-.. math::  CLAIC = -2L_{CL}(\hat\theta_{CL}) + 2tr[\mathbf{J}(\hat\theta_{CL})\mathbf{H}^{-1}(\hat\theta_{CL})] 
+:math:`$CLAIC = -2L_{CL}(\hat\theta_{CL}) + 2tr[\mathbf{J}(\hat\theta_{CL})\mathbf{H}^{-1}(\hat\theta_{CL})]$` 
 
-Where :math:`\mathbf{J(\theta)}` and :math:`\mathbf{H(\theta)}` are the
+Where :math:`$\mathbf{J(\theta)}$` and :math:`$\mathbf{H(\theta)}$` are the
 Jacobian and Hessian matrices of the likelihood function, and
-:math:`\hat\theta_{CL}` represents the composite maximum likelihood
+:math:`$\hat\theta_{CL}$` represents the composite maximum likelihood
 estimate.
 
 **Reference:** *Varin, C., Reid, N., & Firth, D. (2011). AN OVERVIEW OF
@@ -38,7 +38,7 @@ Composite Likelihood BIC (CLBIC)
 CLBIC, formulated by Gao and Song (2010), is similar to CLAIC, but
 adjusts for sample size *n*:
 
-.. math::  CLBIC = -2L_{CL}(\hat\theta_{CL}) + log(n) tr[\mathbf{J}(\hat\theta_{CL})\mathbf{H}^{-1}(\hat\theta_{CL})] 
+:math:`$CLBIC = -2L_{CL}(\hat\theta_{CL}) + log(n) tr[\mathbf{J}(\hat\theta_{CL})\mathbf{H}^{-1}(\hat\theta_{CL})]$` 
 
 **Reference:** *Gao, X., & Song, P. X.-K. (2010). Composite Likelihood
 Bayesian Information Criteria for Model Selection in High-Dimensional
@@ -63,12 +63,12 @@ Import ``claic``:
 
    from iclik.inform_crit import claic
 
-First we need to define a composite likelihood function.
+Things are much easier if we ignore the data, so it's best to design a wrapper function that only takes parameters as input. In reality, we would embed the fitted model in the wrapper function, but here we'll just work with a simple dummy function:
 
 .. code:: python
 
    def f(params):
-       """I'm a composite likelihood function"""
+       """I'm a dummy function"""
        x, y, z = params
        return x**2 + y**2 + z**2
 
