@@ -2,7 +2,7 @@ import numpy as np
 import numdifftools as nd
 
 
-def hessian(f, estimates, initial_step, step_factor):
+def hessian(f, estimates, step, step_factor):
     """Calculate Hessian by iteratively changing step size until all elements are finite.
 
     Args:
@@ -14,17 +14,17 @@ def hessian(f, estimates, initial_step, step_factor):
     Returns:
         ndarray: Hessian matrix.
     """
-    hess_f = nd.core.Hessian(f, step=initial_step)
+    hess_f = nd.core.Hessian(f, step=step)
     hess_mat = hess_f(np.array(estimates))
     if not (np.isfinite(hess_mat)).any():
-            new_step = initial_step * step_factor
-            print(f"Non-finite values detected - changing step size to {new_step}")
-            hess_mat = hessian(f, estimates, initial_step=new_step, step_factor=step_factor)
-            
+            step = step * step_factor
+            hess_mat = hessian(f, estimates, step=step, step_factor=step_factor)
+
+    assert (np.isfinite(hess_mat)).all()  
     return hess_mat
 
 
-def jacobian(f, estimates, initial_step, step_factor):
+def jacobian(f, estimates, step, step_factor):
     """Calculate Jacobian by iteratively changing step size until all elements are finite.
 
     Args:
@@ -36,11 +36,11 @@ def jacobian(f, estimates, initial_step, step_factor):
     Returns:
         ndarray: Jacobian matrix.
     """
-    jac_f = nd.core.Jacobian(f, step=initial_step)
+    jac_f = nd.core.Jacobian(f, step=step)
     jac_mat = jac_f(np.array(estimates))
     if not (np.isfinite(jac_mat)).any():
-            new_step = initial_step * step_factor
-            print(f"Non-finite values detected - changing step size to {new_step}")
-            jac_mat = jacobian(f, estimates, initial_step=new_step, step_factor=step_factor)
+            step = step * step_factor
+            jac_mat = jacobian(f, estimates, step=step, step_factor=step_factor)
 
+    assert (np.isfinite(jac_mat)).all()
     return jac_mat
