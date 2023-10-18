@@ -16,11 +16,10 @@ def hessian(f, estimates, step, step_factor):
     """
     hess_f = nd.core.Hessian(f, step=step)
     hess_mat = hess_f(np.array(estimates))
-    if not (np.isfinite(hess_mat)).any():
+    if not (np.isfinite(hess_mat)).all():
             step = step * step_factor
             hess_mat = hessian(f, estimates, step=step, step_factor=step_factor)
 
-    assert (np.isfinite(hess_mat)).all()  
     return hess_mat
 
 
@@ -38,9 +37,8 @@ def jacobian(f, estimates, step, step_factor):
     """
     jac_f = nd.core.Jacobian(f, step=step)
     jac_mat = jac_f(np.array(estimates))
-    if not (np.isfinite(jac_mat)).any():
+    if not (np.isfinite(jac_mat)).all():
             step = step * step_factor
             jac_mat = jacobian(f, estimates, step=step, step_factor=step_factor)
 
-    assert (np.isfinite(jac_mat)).all()
     return jac_mat
