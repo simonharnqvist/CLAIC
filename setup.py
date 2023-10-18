@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='iclik',
-    version='0.1.8-alpha',
+    version='0.1.9-alpha',
     packages=['iclik'],
     description="Information criteria for composite likelihood models",
     long_description=open('README.rst').read(),
